@@ -10,6 +10,7 @@ import java.awt.Component;
 import javax.swing.Box;
 import java.awt.Font;
 
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JCheckBox;
@@ -350,6 +351,7 @@ public class MainForm extends MCUApp {
 		btnManageServers.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ServerManager sm = new ServerManager(window);
+				sm.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				sm.setVisible(true);
 			}
 		});
@@ -363,6 +365,7 @@ public class MainForm extends MCUApp {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ClientConfig cc = new ClientConfig(window);
+				cc.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				cc.setVisible(true);
 			}
 		});
@@ -374,12 +377,24 @@ public class MainForm extends MCUApp {
 		btnBackups.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				BackupManager bm = new BackupManager(window);
+				bm.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 				bm.setVisible(true);
 			}
 		});
 		btnBackups.setIcon(new ImageIcon(MainForm.class.getResource("/icons/folder_database.png")));
 		btnBackups.setToolTipText("Backups");
 		toolBar.add(btnBackups);
+		
+		JButton btnHelp = new JButton("");
+		btnHelp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				HelpDialog help = new HelpDialog(window);
+				help.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				help.setVisible(true);
+			}
+		});
+		btnHelp.setIcon(new ImageIcon(MainForm.class.getResource("/icons/help.png")));
+		toolBar.add(btnHelp);
 		
 		Component horizontalGlue = Box.createHorizontalGlue();
 		toolBar.add(horizontalGlue);
