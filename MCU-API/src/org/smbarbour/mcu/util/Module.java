@@ -12,9 +12,11 @@ public class Module {
 	private Boolean inRoot;
 	private Boolean isDefault;
 	private String md5;
+	private String author;
+	private String infoUrl;
 	private List<ConfigFile> configs;
 	
-	public Module(String name, String url, Boolean required, Boolean inJar, Boolean extract, Boolean inRoot, Boolean isDefault, String md5, List<ConfigFile> configs)
+	public Module(String name, String url, Boolean required, Boolean inJar, Boolean extract, Boolean inRoot, Boolean isDefault, String md5, String author, String infoUrl, List<ConfigFile> configs)
 	{
 		this.name=name;
 		this.url=url;
@@ -24,6 +26,8 @@ public class Module {
 		this.setExtract(extract);
 		this.setInRoot(inRoot);
 		this.setMD5(md5);
+		this.setAuthor(author);
+		this.setInfoUrl(infoUrl);
 		if(configs != null)
 		{
 			this.configs = configs;
@@ -98,6 +102,22 @@ public class Module {
 
 	public Boolean getIsDefault() {
 		return isDefault;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public void setInfoUrl(String infoUrl) {
+		this.infoUrl = infoUrl;
+	}
+	
+	public String getInfoUrl() {
+		return infoUrl;
 	}
 
 	public List<ConfigFile> getConfigs()
