@@ -87,8 +87,9 @@ public class LauncherThread implements Runnable {
 		String suppress = "";
 		if (this.suppressUpdates) {
 			suppress = "--noupdate";
-		}
+		} 
 		ProcessBuilder pb = new ProcessBuilder("java","-Xms"+minMem, "-Xmx"+maxMem, "-jar", launcher.getPath(), suppress);
+		pb.environment().put("APPDATA", "files");  
 		pb.redirectErrorStream(true);
 		BufferedWriter buffWrite = null;
 		try {
