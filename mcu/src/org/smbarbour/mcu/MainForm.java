@@ -345,7 +345,7 @@ public class MainForm extends MCUApp {
 				{
 					changeSelectedServer(((ServerListPacket)serverList.getSelectedValue()).getEntry());
 					if (selected.getServerId().equals(config.getProperty("currentConfig")) && !(selected.getRevision().equals(config.getProperty("packRevision")))) {
-						JOptionPane.showMessageDialog(null, "Your configuration is out of sync with the server. Updating is necessary.", "MCUpdater", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "There is a new version available for this server. Updating is necessary.", "MCUpdater", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			}
