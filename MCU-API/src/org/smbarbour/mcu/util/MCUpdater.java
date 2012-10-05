@@ -63,6 +63,8 @@ public class MCUpdater {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
+		// configure the download cache
+		DownloadCache.init(new File(MCFolder + sep + "mcu" + sep + "cache"));
 	}
 	
 	public MCUApp getParent() {
